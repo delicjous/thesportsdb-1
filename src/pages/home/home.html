@@ -8,11 +8,59 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ng-container *ngIf="sports && sports.length; else elseTemplate">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+            Selectionnez un Sport dans la liste:      
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-select multiple="false"                         
+            [(ngModel)]="appStore.currentSport"             
+            placeholder="Selectionner un sport">
+              <ion-option *ngFor="let sport of sports" 
+                        [value]="sport.strSport">
+                    {{sport.strSport}}
+              </ion-option>
+          </ion-select> 
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+            Selectionnez un pays dans la liste:      
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-select multiple="false"                         
+            [(ngModel)]="appStore.currentCountry"             
+            placeholder="Selectionner un pays">
+              <ion-option *ngFor="let country of countries" 
+                        [value]="country">
+                    {{country}}
+              </ion-option>
+          </ion-select> 
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <button ion-button block color="primary" (click)="onSportChanged()">
+            Go
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    
+    
+         
+  </ng-container>
+  <ng-template #elseTemplate>
+      <div class="center-block">
+        <img src="./assets/imgs/giphy.gif" />
+      </div> 
+  </ng-template>  
 </ion-content>

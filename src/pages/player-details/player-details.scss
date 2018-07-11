@@ -1,0 +1,25 @@
+page-player-details {
+    ion-slide{
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    ion-slides {
+        height: 200px;
+     }
+     ion-icon{
+        font-size: 1.5em;
+     }
+     .header-grid{
+        background:$light;
+        color: black!important;
+        margin: 0px!important;
+        border-bottom: 1px solid grey; 
+        padding:0px!important;
+
+     }
+     .center{
+         text-align: center;
+     }
+}

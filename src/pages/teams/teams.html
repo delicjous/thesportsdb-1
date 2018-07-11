@@ -1,0 +1,26 @@
+<!--
+  Generated template for the TeamsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Equipes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid *ngIf="teams" wrap>
+      <ion-row>
+        <ion-col *ngFor="let team of teams" col-6 tappable (click)="selectTeam(team)">
+          <div class="championat-card center-block">
+            <img src="{{team.strTeamBadge}}" alt="{{team.strDescriptionFR}}">
+          </div>
+        </ion-col>          
+      </ion-row>
+    </ion-grid>
+</ion-content>

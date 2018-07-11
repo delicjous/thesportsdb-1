@@ -1,0 +1,73 @@
+<!--
+  Generated template for the PlayersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ng-container *ngIf="appStore.currentTeam; else elseTemplate">
+        <ion-title>Joueurs du {{appStore.currentTeam.strTeam}}</ion-title>  
+    </ng-container>
+    <ng-template #elseTemplate>
+        <ion-title>List des joueurs</ion-title>  
+    </ng-template>    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ng-container *ngIf="players && players.length; else elseTemplate">
+      <ion-card *ngFor="let player of players" tappable (click)="playerDetails(player)">
+          <ion-item>
+            <ion-avatar item-start>
+              <img  src="{{player.strCutout ? player.strCutout : './assets/imgs/unkown.png'}}">
+            </ion-avatar>
+            <h2>{{player.strPlayer}}</h2>
+            <p>{{player.dateBorn | age}}</p>
+            <p *ngIf="player.strWage">{{player.strWage}}</p>
+          </ion-item>                  
+        
+          <ion-card-content>
+            <ng-container *ngIf="player.strDescriptionEN; else elseTemplate">
+                <p>
+                    {{player.strDescriptionEN | truncate : 200}}
+                </p>  
+            </ng-container>
+            <ng-template #elseTemplate>
+                coming soon...
+            </ng-template>                        
+          </ion-card-content>
+        
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>{{player.intLoved}} Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="ios-stats-outline"></ion-icon>
+                <div>{{player.strWeight}}Kg</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                {{player.strHeight}}m
+              </ion-note>
+            </ion-col>
+          </ion-row>
+        
+      </ion-card>
+  </ng-container>
+  <ng-template #elseTemplate>
+      <div class="center-block">
+        <img src="./assets/imgs/giphy.gif" />
+      </div> 
+  </ng-template>
+    
+    
+
+
+</ion-content>

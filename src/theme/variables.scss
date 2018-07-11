@@ -14,7 +14,15 @@ $app-direction: ltr;
 
 @import "ionic.globals";
 
+.center-block{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
 
+.max-widht-200{
+  max-width: 200px;
+}
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
@@ -39,8 +47,21 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222
+
 );
 
+$light : #f4f4f4;
+
+
+.fixed-tile{  
+  z-index: 99999;
+  position: fixed;
+  cursor: pointer;
+  top: 10px;
+  left:10px;   
+  width: 40px;
+  height: 40px;
+}
 
 // App iOS Variables
 // --------------------------------------------------

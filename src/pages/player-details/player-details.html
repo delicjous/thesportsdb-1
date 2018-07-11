@@ -1,0 +1,60 @@
+<!--
+  Generated template for the PlayerDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+  <ion-grid class="header-grid">
+    <ion-row>
+      <ion-col col-2>
+        <div ion-button clear color="dark" (click)="close()">
+            <ion-icon name="ios-close-outline"></ion-icon>
+        </div>          
+      </ion-col>
+      <ion-col col-10 class="center">
+          <h2>{{player.strPlayer}}    </h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-slides>
+    <ion-slide >
+        <img style="width:100%;height: auto;" src="{{player.strFanart1?player.strFanart1 : './assets/imgs/placeholder-image.jpg'}}" />
+    </ion-slide>
+    <ion-slide >
+        <img style="width:100%;height: auto;" src="{{player.strFanart2?player.strFanart2 : './assets/imgs/placeholder-image.jpg'}}" />
+    </ion-slide>
+    <ion-slide >
+        <img style="width:100%;height: auto;" src="{{player.strFanart3?player.strFanart3 : './assets/imgs/placeholder-image.jpg'}}" />
+    </ion-slide>
+    <ion-slide >
+        <img style="width:100%;height: auto;" src="{{player.strFanart4?player.strFanart4 : './assets/imgs/placeholder-image.jpg'}}" />
+    </ion-slide>
+  </ion-slides>
+  <ion-grid *ngIf="player">
+      <ion-row><ion-col col-5>Nationality</ion-col><ion-col col-7>{{player.strNationality}}</ion-col></ion-row>
+      <!-- <ion-row><ion-col col-5>Player</ion-col><ion-col col-7>{{player.strPlayer}}</ion-col></ion-row> -->
+      <ion-row><ion-col col-5>Team</ion-col><ion-col col-7>{{player.strTeam}}</ion-col></ion-row>
+      <ion-row><ion-col col-5>Sport</ion-col><ion-col col-7>{{player.strSport}}</ion-col></ion-row>
+      <ion-row><ion-col col-5>Age</ion-col><ion-col col-7>{{player.dateBorn | age}}</ion-col></ion-row>
+      <ion-row><ion-col col-5>Date contrat</ion-col><ion-col col-7>{{player.dateSigned}}</ion-col></ion-row>      
+      <ion-row><ion-col col-5>Salaire</ion-col><ion-col col-7>{{player.strWage}}</ion-col></ion-row>
+      <ion-row><ion-col col-5>Lieu de naissance</ion-col><ion-col col-7>{{player.strBirthLocation}}</ion-col></ion-row>
+      <ion-row><ion-col col-12>Description</ion-col></ion-row>
+      <ion-row>
+        <ion-col col-12>
+          {{player.strDescriptionEN}}
+        </ion-col>
+      </ion-row>
+      <ion-row><ion-col col-5>Position</ion-col><ion-col col-7>{{player.strPosition}}</ion-col></ion-row>
+      <ion-row *ngIf="player.strCollege"><ion-col col-5>Universite</ion-col><ion-col col-7>{{player.strCollege}}</ion-col></ion-row>
+      <ion-row *ngIf="player.strFacebook" tappable (click)="openPage(player.strFacebook)"><ion-col col-5>Facebook</ion-col><ion-col col-7>{{player.strFacebook}}</ion-col></ion-row>
+      <ion-row *ngIf="player.strWebsite" tappable (click)="openPage(player.strWebsite)"><ion-col col-5>Website</ion-col><ion-col col-7>{{player.strWebsite}}</ion-col></ion-row>
+      <ion-row *ngIf="player.strTwitter" tappable (click)="openPage(player.strTwitter)"><ion-col col-5>Twitter</ion-col><ion-col col-7>{{player.strTwitter}}</ion-col></ion-row>
+      <ion-row *ngIf="player.strInstagram" tappable (click)="openPage(player.strInstagram)"><ion-col col-5>Instagram</ion-col><ion-col col-7>{{player.strInstagram}}</ion-col></ion-row>
+      <ion-row *ngIf="player.strYoutube" tappable (click)="openPage(player.strYoutube)"><ion-col col-5>Youtube</ion-col><ion-col col-7>{{player.strYoutube}}</ion-col></ion-row>
+      <ion-row><ion-col col-5>Hauteur</ion-col><ion-col col-7>{{player.strHeight}}</ion-col></ion-row>
+      <ion-row><ion-col col-5>Poids</ion-col><ion-col col-7>{{player.strWeight}}</ion-col></ion-row>
+  </ion-grid>
+</ion-content>
